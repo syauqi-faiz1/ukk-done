@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 namespace App\Http\Middleware;
 
@@ -21,4 +21,4 @@ class IsAdmin
 
         return redirect('/');
     }
-}
+} -->
