@@ -42,11 +42,25 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('nis', 'password'), $this->boolean('remember'))) {
+        $login = $this->input('nis');
+        $role  = $this->input('role_selector');
+
+        // Tentukan field
+        if ($role === 'admin') {
+            $field = 'username';
+        } else {
+            $field = 'nis';
+        }
+
+        if (! Auth::attempt([
+            $field => $login,
+            'password' => $this->input('password'),
+        ], $this->boolean('remember'))) {
+
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'nis' => trans('auth.failed'),
+                'nis' => 'Login gagal! Periksa username / NIS dan password.',
             ]);
         }
 

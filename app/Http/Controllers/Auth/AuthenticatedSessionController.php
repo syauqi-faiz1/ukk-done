@@ -30,12 +30,12 @@ class AuthenticatedSessionController extends Controller
 
         $user = auth()->user();
 
-        if ($user->status !== 'approved') {
-            Auth::guard('web')->logout();
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
-            return back()->withInput()->withErrors(['nis' => 'Akun Anda belum disetujui admin']);
-        }
+        // if ($user->status !== 'approved') {
+        //     Auth::guard('web')->logout();
+        //     $request->session()->invalidate();
+        //     $request->session()->regenerateToken();
+        //     return back()->withInput()->withErrors(['nis' => 'Akun Anda belum disetujui admin']);
+        // }
 
         if ($user->role === 'admin') {
             return redirect()->intended(route('admin.dashboard', absolute: false));

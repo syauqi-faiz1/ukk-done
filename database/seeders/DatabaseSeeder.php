@@ -4,21 +4,24 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Admin;
+use App\Models\ComplaintCategory;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
   public function run(): void
   {
-    Admin::create([
-      'username' => 'admin',
-      'password' => Hash::make('123456'),
+    User::create([
+    'nama' => 'Admin Example',
+    'username' => 'example',
+    'password' => Hash::make('123456'),
+    'role' => 'admin',
     ]);
 
     $this->call([
       ComplaintSeeder::class,
-      KelasSeeder::class,
+      UserSeeder::class,
+      ComplaintCategorySeeder::class,
     ]);
   }
 }

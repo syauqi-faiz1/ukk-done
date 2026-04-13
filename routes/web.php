@@ -22,6 +22,8 @@ Route::middleware(['auth', 'is_siswa'])->prefix('siswa')->name('siswa.')->group(
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::view('dashboard', 'dashboard.admin')->name('dashboard');
 
+    Route::resource('categories', ComplaintCategoryController::class);
+
     Route::controller(ComplaintController::class)->group(function () {
         Route::get('complaints', 'adminList')->name('complaints.index');
         Route::get('complaints/{complaint}', 'adminShow')->name('complaints.show');

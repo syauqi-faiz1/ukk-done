@@ -58,10 +58,10 @@
         Log in
       </button>
 
-      <div class="mt-4 text-center text-sm">
+      {{-- <div class="mt-4 text-center text-sm">
         <p>Belum punya akun? <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Daftar sekarang</a></p>
       </div>
-    </form>
+    </form> --}}
   </div>
 
   <script>

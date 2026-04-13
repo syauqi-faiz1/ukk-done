@@ -11,7 +11,7 @@
 
  <div class="w-full max-w-sm">
   <!-- Card Container -->
-  <div class="bg-white rounded-lg border-2 border-blue-900 shadow border overflow-hidden">
+  <div class="bg-white rounded-lg border-blue-900 shadow border overflow-hidden">
    <!-- Header -->
    <div class="bg-white border-b-2 border-blue-900 px-6 py-8 text-center">
     <h2 class="text-2xl font-bold text-blue-600 mb-1">Login Admin</h2>
@@ -21,7 +21,7 @@
    <!-- Form -->
    <form method="POST" action="/login/admin" class="px-6 py-6">
     @csrf
-    
+
     <!-- Username Field -->
     <div class="mb-4">
      <label class="block text-sm font-semibold text-gray-900 mb-2">Username</label>
